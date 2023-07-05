@@ -25,7 +25,5 @@ class Player extends BodyComponent {
     final fixtureDef = FixtureDef(shape, friction: 0.5);
     final bodyDef = BodyDef(position: Vector2(5, 5), type: BodyType.dynamic);
     return world.createBody(bodyDef)..createFixture(fixtureDef);
-    // TODO: implement createBody
-    throw UnimplementedError();
   }
 }
