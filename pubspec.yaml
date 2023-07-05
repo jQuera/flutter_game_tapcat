@@ -10,7 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flame: 1.8.0
+  flame: 1.8.1
+  flame_forge2d: 0.14.1
 
 dev_dependencies:
   flutter_test:
