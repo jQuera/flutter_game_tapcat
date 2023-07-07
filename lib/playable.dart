@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 
-class Player extends BodyComponent {
+class Player extends BodyComponent with Tappable {
   // Player() : super(size: Vector2.all(128));
   final Vector2 position = Vector2(20, 2);
   final Vector2 size = Vector2.all(6);
