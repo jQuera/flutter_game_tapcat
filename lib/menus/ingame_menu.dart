@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_game_tapcat/actions/force_left.dart';
+import 'package:flutter_game_tapcat/actions/force_right.dart';
+import 'package:flutter_game_tapcat/actions/force_up.dart';
+import 'package:flutter_game_tapcat/games/gameplay.dart';
+import 'package:flutter_game_tapcat/menus/widgets/action_widget.dart';
 
 class InGameMenu extends StatelessWidget {
-  const InGameMenu({super.key});
+  const InGameMenu({required this.gameRef, super.key});
+  final MyGame gameRef;
   static String menuName = 'InGameMenu';
 
   @override
@@ -12,7 +18,7 @@ class InGameMenu extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SafeArea(
+          const SafeArea(
             child: Row(
               children: [
                 Text('Score: 10'),
@@ -26,23 +32,28 @@ class InGameMenu extends StatelessWidget {
                 height: 70,
                 width: double.infinity,
                 child: SafeArea(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 3,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => Container(
-                      color: Colors.amber,
-                      margin: const EdgeInsets.all(10),
-                      child: const Column(
-                        children: [
-                          Placeholder(
-                            fallbackHeight: 30,
-                            fallbackWidth: 30,
-                          ),
-                        ],
-                      ),
-                    ),
+                  child: Row(
+                    children: [
+                      ActionWidget(action: () {
+                        print('realizando forceleft');
+                        ForceLeft().action(gameRef.player);
+                      }),
+                      ActionWidget(action: () {
+                        print('realizando forceRight');
+                        ForceRight().action(gameRef.player);
+                      }),
+                      ActionWidget(action: () {
+                        print('realizando forceUp');
+                        ForceUp().action(gameRef.player);
+                      }),
+                    ],
                   ),
+                  // ListView.builder(
+                  //   shrinkWrap: true,
+                  //   itemCount: 3,
+                  //   scrollDirection: Axis.horizontal,
+                  //   itemBuilder: (context, index) =>
+                  // ),
                 ),
               ),
             ],

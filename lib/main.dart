@@ -11,13 +11,13 @@ void main() {
       game: myGame,
       initialActiveOverlays: [InGameMenu.menuName],
       overlayBuilderMap: {
-        'PauseMenu': (context, game) {
+        'PauseMenu': (context, MyGame game) {
           return Container(
             color: Colors.red,
             child: const Text('Un menu de pausa'),
           );
         },
-        InGameMenu.menuName: (context, game) => const InGameMenu()
+        InGameMenu.menuName: (context, MyGame game) => InGameMenu(gameRef: game)
       },
     ),
   );
