@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_game_tapcat/actions/force_down.dart';
 import 'package:flutter_game_tapcat/actions/force_left.dart';
 import 'package:flutter_game_tapcat/actions/force_right.dart';
 import 'package:flutter_game_tapcat/actions/force_up.dart';
@@ -29,23 +30,40 @@ class InGameMenu extends StatelessWidget {
             children: [
               Container(
                 color: Colors.grey,
-                height: 70,
+                height: MediaQuery.sizeOf(context).height / 8.5,
                 width: double.infinity,
                 child: SafeArea(
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ActionWidget(action: () {
-                        print('realizando forceleft');
-                        ForceLeft().action(gameRef.player);
-                      }),
-                      ActionWidget(action: () {
-                        print('realizando forceRight');
-                        ForceRight().action(gameRef.player);
-                      }),
-                      ActionWidget(action: () {
-                        print('realizando forceUp');
-                        ForceUp().action(gameRef.player);
-                      }),
+                      ActionWidget(
+                        icon: Icons.swipe_left_alt,
+                        onTap: () {
+                          print('realizando forceleft');
+                          ForceLeft().action(gameRef.player);
+                        },
+                      ),
+                      ActionWidget(
+                        icon: Icons.swipe_right_alt,
+                        onTap: () {
+                          print('realizando forceRight');
+                          ForceRight().action(gameRef.player);
+                        },
+                      ),
+                      ActionWidget(
+                        icon: Icons.swipe_up_alt,
+                        onTap: () {
+                          print('realizando forceUp');
+                          ForceUp().action(gameRef.player);
+                        },
+                      ),
+                      ActionWidget(
+                        icon: Icons.swipe_down_alt,
+                        onTap: () {
+                          print('realizando ForceDown');
+                          ForceDown().action(gameRef.player);
+                        },
+                      ),
                     ],
                   ),
                   // ListView.builder(

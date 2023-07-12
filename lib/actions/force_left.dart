@@ -6,6 +6,6 @@ class ForceLeft extends ActionBase {
   @override
   void action(Player playerTarget) {
     super.action(playerTarget);
-    playerTarget.body.applyLinearImpulse(Vector2(-1, 0) * 3000);
+    playerTarget.body.applyLinearImpulse(Vector2(-1, 0) * 1000);
   }
 }

@@ -13,7 +13,7 @@ class Player extends BodyComponent {
     add(
       SpriteComponent(
         sprite: await Sprite.load('cat.png'),
-        size: Vector2.all(8),
+        size: Vector2.all(5),
         anchor: Anchor.center,
       ),
     );
@@ -23,14 +23,14 @@ class Player extends BodyComponent {
   @override
   Body createBody() {
     final shape = CircleShape();
-    shape.radius = 5;
+    shape.radius = 2.5;
     setColor(Colors.red);
 
     final fixtureDef = FixtureDef(
       shape,
-      restitution: 1,
+      restitution: 0.4,
       density: 1.0,
-      friction: 0.4,
+      friction: 0.6,
     );
 
     final bodyDef = BodyDef(
@@ -38,6 +38,7 @@ class Player extends BodyComponent {
       angularDamping: 0.8,
       position: _position,
       type: BodyType.dynamic,
+      gravityOverride: Vector2.all(0),
     );
 
     return world.createBody(bodyDef)..createFixture(fixtureDef);

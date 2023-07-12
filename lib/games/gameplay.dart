@@ -13,7 +13,7 @@ class MyGame extends Forge2DGame {
 
   @override
   Future<void> onLoad() async {
-    player = Player(Vector2(size.x / 2, 0));
+    player = Player(Vector2(size.x / 2, 10));
     add(player);
     addAll(createBoundaries(size
       ..y -= 10

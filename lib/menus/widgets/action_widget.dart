@@ -2,26 +2,28 @@ import 'package:flutter/material.dart';
 
 class ActionWidget extends StatelessWidget {
   const ActionWidget({
-    required this.action,
+    required this.icon,
+    required this.onTap,
     super.key,
   });
-
-  final VoidCallback action;
+  final IconData icon;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        action();
+        onTap();
       },
       child: Container(
         color: Colors.amber,
         margin: const EdgeInsets.all(10),
-        child: const Column(
+        child: Column(
           children: [
-            Placeholder(
-              fallbackHeight: 30,
-              fallbackWidth: 30,
+            SizedBox(
+              height: 30,
+              width: 50,
+              child: Icon(icon),
             ),
           ],
         ),
